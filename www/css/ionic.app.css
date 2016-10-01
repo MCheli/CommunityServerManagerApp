@@ -3168,6 +3168,10 @@ legend {
  * 5. Make sure webkit font smoothing is being inherited
  * 6. Remove default gradient in Android Firefox / FirefoxOS
  */
+button {
+  color: #ffffff !important;
+}
+
 button,
 input,
 select,
@@ -3915,9 +3919,9 @@ a.subdued {
     border-color: #b2b2b2;
     background-color: #208082;
     background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
-    color: #444; }
+    color: #ffffff; }
     .bar.bar-stable .title {
-      color: #444; }
+      color: #ffffff; }
     .bar.bar-stable.bar-footer {
       background-image: linear-gradient(180deg, #b2b2b2, #b2b2b2 50%, transparent 50%); }
   .bar.bar-positive {
