@@ -17,7 +17,7 @@ The CSM app is build on ionic which means you must have the following installed 
 ###Download and Run
 This repository is currently built WITHOUT any major .gitignore functions so almost all content should work after the clone.  If this does not work, copy the www folder from this repository and replace a basic ionic generated applicaiton's www folder.
 
-1.  `git clone https://github.com/mcheli/CommunityServerManagerApp.git
+1.  `git clone https://github.com/mcheli/CommunityServerManagerApp.git`
 2.  `ionic serve`
 
 ###Build
