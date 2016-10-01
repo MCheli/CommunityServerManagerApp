@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app.controllers', [])
+angular.module('app')
 
     .controller('ServerController', ['$scope', '$state', '$stateParams', '$rootScope', function ($scope, $state, $stateParams, $rootScope) {
 

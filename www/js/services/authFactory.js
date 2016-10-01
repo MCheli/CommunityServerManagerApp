@@ -2,7 +2,7 @@
 
 angular.module('app')
 
-    .factory('AuthFactory', ['$resource', '$http', '$localStorage', '$rootScope', '$window', 'baseURL', function ($resource, $http, $localStorage, $rootScope, $window, baseURL) {
+    .factory('AuthFactory', ['$resource', '$http', '$localStorage', '$rootScope', function ($resource, $http, $localStorage, $rootScope) {
 
         var authFac = {};
         var TOKEN_KEY = 'Token';

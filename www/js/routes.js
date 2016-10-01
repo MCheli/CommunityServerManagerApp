@@ -15,13 +15,13 @@ angular.module('app.routes', [])
             .state('login', {
                 url: '/login',
                 templateUrl: 'templates/login.html',
-                controller: 'loginCtrl'
+                controller: 'LoginController'
             })
 
-            .state('signup', {
+            .state('register', {
                 url: '/register',
-                templateUrl: 'templates/signup.html',
-                controller: 'signupCtrl'
+                templateUrl: 'templates/register.html',
+                controller: 'RegisterController'
             })
 
             .state('applications', {
