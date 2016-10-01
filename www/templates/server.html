@@ -1,17 +1,17 @@
 <ion-view title="Server" id="page4">
     <ion-content padding="true" class="has-header">
         <div style="margin-left: -10px; width: calc(100% + 20px);">
-            <img src="img/bLGq9phiTe2DZFRyoUTg_banner.png" width="100%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
+            <img src="img/bLGq9phiTe2DZFRyoUTg_banner.png" width="100%" height="auto" style="display: block; margin-top:-10px; margin-left: auto; margin-right: auto;">
         </div>
-        <form id="server-form1" class="list">
+        <form id="server-form1" class="list" ng-submit="setServerURL(serverUrl)">
             <ion-list id="server-list1">
                 <label class="item item-input" id="server-input1">
                     <span class="input-label">Server URL</span>
-                    <input type="text" placeholder="">
+                    <input type="text" placeholder="" ng-model="serverUrl">
                 </label>
             </ion-list>
             <div class="spacer" style="height: 40px;"></div>
-            <a ui-sref="login" id="server-button1" class="button button-energized  button-block">Go to Login</a>
+            <button type="submit" id="server-button1" class="button button-energized button-block">Go to Login</button>
         </form>
     </ion-content>
 </ion-view>
