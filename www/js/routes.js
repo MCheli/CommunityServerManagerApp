@@ -27,13 +27,18 @@ angular.module('app.routes', [])
             .state('applications', {
                 url: '/home',
                 templateUrl: 'templates/applications.html',
-                controller: 'applicationsCtrl'
+                controller: 'ApplicationController'
             })
 
-            .state('scripts', {
-                url: '/scripts',
+            .state('applications.scripts', {
+                url: '/home/:name',
                 templateUrl: 'templates/scripts.html',
-                controller: 'scriptsCtrl'
+                controller: 'ScriptController',
+                resolve: {
+                    name: ['$stateParams', function ($stateParams) {
+                        return $stateParams.name;
+                    }]
+                }
             })
 
         $urlRouterProvider.otherwise('/landing')

@@ -2,8 +2,8 @@
 
 angular.module('app')
 
-    .factory('scriptFactory', ['$resource', 'baseURL', 'AuthFactory', function ($resource, baseURL, AuthFactory) {
-        return $resource(baseURL + "applications/:id/scripts/:scriptId", null,
+    .factory('scriptFactory', ['$resource', 'AuthFactory', '$rootScope', function ($resource, AuthFactory, $rootScope) {
+        return $resource($rootScope.serverURL + "applications/:id/scripts/:scriptId", null,
             {
                 'query': {
                     method: 'GET',
