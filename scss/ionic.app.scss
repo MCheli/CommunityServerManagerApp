@@ -1,0 +1,34 @@
+$stable: #208082;
+$energized: #F5733A;
+$dark: #473B45;
+$link-color: $stable;
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+@import "../www/lib/ionic/scss";
+ion-view,.pane,.view {
+  background-color: #D5D5D5;
+}
+
+body {
+  color: #473B45;
+}
+
+body.platform-ios {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ionic-body.platform-ios {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body.platform-android {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ionic-body.platform-android {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6,.tab-item,input,button,select,textarea {
+  font-family: inherit;
+}
+
