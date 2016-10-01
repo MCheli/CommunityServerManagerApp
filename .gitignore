@@ -1,18 +1,5 @@
 .idea
-/node_modules/
+/node_modules
 /platforms/ios/
 /platforms/android/
-
-
-node_modules
-.tmp
-.sass-cache
-<%= appPath %>/bower_components
-coverage
-platforms
-plugins
-*.swp
-*.swo
-*.log
-*.DS_Store
-/bower_components/
+/bower_components
