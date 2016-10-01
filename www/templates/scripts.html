@@ -1,24 +1,26 @@
 <ion-view title="Scripts" id="page7">
     <ion-content padding="true" class="has-header">
-        <h1 id="scripts-heading1" style="color:#000000;">Ark Server</h1>
-        <div id="scripts-markdown2" style="color:#000000;">
-            <p>This is the server for Ark which does x, y and z, and i'm a little skeptical of this HTML.</p>
+        <div class="list card" id="applications-card21">
+            <h1 id="applications-heading4"
+                style="color:#473B45;font-weight:700;padding-top: 20px;padding-left: 20px; padding-right: 20px;">
+                {{application.applicationName}}</h1>
+            <div id="applications-markdown6"
+                 style="color:#473B45; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px;">
+                <p>{{application.applicationDescription}}</p>
+            </div>
         </div>
-        <div class="spacer" style="width: 300px; height: 33px;"></div>
-        <h3 id="scripts-heading2" style="color:#000000;">Start Server</h3>
-        <div id="scripts-markdown3" style="color:#000000;">
-            <p>This script does x, y, and z and you should click it because it's awesome!.</p>
-        </div>
-        <div style="margin-right:-20px;">
-            <button id="scripts-button4" style="left:-10px;" class="button button-positive  button-full">Activate</button>
-        </div>
-        <div class="spacer" style="width: 300px; height: 33px;"></div>
-        <h3 id="scripts-heading3" style="color:#000000;">Stop Server</h3>
-        <div id="scripts-markdown4" style="color:#000000;">
-            <p>This script does x, y, and z and you should click it because it's awesome!.</p>
-        </div>
-        <div style="margin-right:-20px;">
-            <button id="scripts-button5" style="left:-10px;" class="button button-positive  button-full">Activate</button>
+        <div class="list card" ng-repeat="script in application.scripts">
+            <h2 style="color:#473B45;font-weight:300;padding-top: 20px;padding-left: 20px; padding-right: 20px;">
+                {{script.scriptName}}</h2>
+            <div id="applications-markdown5"
+                 style="color:#473B45; padding-left: 20px; padding-right: 20px; padding-top: 10px;">
+                <p>{{script.scriptDescription}}</p>
+            </div>
+            <div style="margin-right:-20px; margin-bottom: -12px">
+                <button id="scripts-button6" style="left:-10px;" class="button button-energized button-full"
+                        ng-click="executeScript(script._id)">Execute Script
+                </button>
+            </div>
         </div>
     </ion-content>
 </ion-view>

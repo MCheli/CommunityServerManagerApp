@@ -2,53 +2,15 @@
 
 angular.module('app')
 
-    .controller('ScriptController', ['$scope', '$state', '$window', '$stateParams', 'applicationFactory', 'scriptFactory', 'AuthFactory', function ($scope, $state, $window, $stateParams, applicationFactory, scriptFactory, AuthFactory) {
+    .controller('ScriptController', ['$scope', '$state', '$window', '$stateParams', 'applicationFactory', 'scriptFactory', function ($scope, $state, $window, $stateParams, applicationFactory, scriptFactory) {
 
         $scope.application = {};
-        $scope.loadingState = true;
-        $scope.admin = AuthFactory.getAdmin();
-        $scope.application = applicationFactory.get({
-            id: $stateParams.name
-        })
 
         $scope.$on('$stateChangeSuccess', function () {
             $scope.application = applicationFactory.get({
                 id: $stateParams.name
-            })
-        })
-
-        $scope.scriptName = "";
-        $scope.scriptDescription = "";
-        $scope.scriptCommand = "";
-
-        // $scope.deleteApplication = function () {
-        //     $scope.deleteApp = applicationFactory.delete({
-        //         id: $stateParams.name
-        //     }, {})
-        //     $scope.deleteApp.$promise.then(function () {
-        //         $state.go('main')
-        //         $window.location.reload();
-        //     });
-        // }
-
-        // $scope.createScript = function () {
-        //     var body = {
-        //         "scriptName": $scope.scriptName,
-        //         "scriptDescription": $scope.scriptDescription,
-        //         "scriptCommand": $scope.scriptCommand
-        //     }
-        //     $scope.saveScript = scriptFactory.save({
-        //         id: $stateParams.name
-        //     }, body)
-        //     $scope.saveScript.$promise.then(function () {
-        //         $scope.application = applicationFactory.get({
-        //             id: $stateParams.name
-        //         })
-        //         $scope.scriptName = "";
-        //         $scope.scriptDescription = "";
-        //         $scope.scriptCommand = "";
-        //     });
-        // }
+            });
+        });
 
         $scope.executeScript = function (scriptId) {
             scriptFactory.save({
@@ -57,16 +19,5 @@ angular.module('app')
             }, {})
         }
 
-        // $scope.deleteScript = function (scriptId) {
-        //     $scope.delScript = scriptFactory.delete({
-        //         id: $stateParams.name,
-        //         scriptId: scriptId
-        //     }, {})
-        //     $scope.delScript.$promise.then(function () {
-        //         $scope.application = applicationFactory.get({
-        //             id: $stateParams.name
-        //         })
-        //     })
-        // }
     }
-    ])
+    ]);
