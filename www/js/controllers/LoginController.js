@@ -4,9 +4,8 @@ angular.module('app')
 //TODO: Add back AuthFactory
     .controller('LoginController', ['$scope', '$state', '$rootScope', 'AuthFactory', function ($scope, $state, $rootScope, AuthFactory) {
 
-
-        $scope.loginUsername = "";
-        $scope.loginPassword = "";
+        $scope.username = "";
+        $scope.password = "";
 
         $rootScope.$on('login:Successful', function () {
             $scope.loggedIn = AuthFactory.isAuthenticated();
@@ -14,14 +13,15 @@ angular.module('app')
             $state.go('applications');
         });
 
-
-        $scope.loginUser = function () {
-            if ($scope.loginUsername && $scope.loginPassword) {
-                var body = {
-                    username: $scope.loginUsername,
-                    password: $scope.loginPassword
-                };
-                AuthFactory.login(body)
-            }
+        $scope.loginUser = function (username, password) {
+            console.log("Whats happening")
+            console.log(username)
+            console.log(password)
+            var body = {
+                username: username,
+                password: password
+            };
+            console.log(body)
+            AuthFactory.login(body)
         };
     }]);

@@ -10,6 +10,7 @@ angular.module('app')
         var username = '';
         var authToken = undefined;
         var admin = false;
+        var baseURL = $rootScope.serverURL;
 
 
         function loadUserCredentials() {
@@ -44,20 +45,28 @@ angular.module('app')
 
         authFac.login = function (loginData) {
 
-            $resource(baseURL + "users/login")
-                .save(loginData,
-                    function (response) {
-                        storeUserCredentials({
-                            username: loginData.username,
-                            token: response.token,
-                            admin: response.admin
-                        });
-                        $rootScope.$broadcast('login:Successful');
-                    },
-                    function (response) {
-                        isAuthenticated = false;
-                    }
-                );
+            var config = {
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    'Content-Type': 'application/json'
+                }
+            }
+            var url = baseURL + "users/login";
+            $http.post(url, loginData, config);
+            //     .post(loginData).then(
+            //     function (response) {
+            //         console.log(response)
+            //         storeUserCredentials({
+            //             username: loginData.username,
+            //             token: response.token,
+            //             admin: response.admin
+            //         });
+            //         $rootScope.$broadcast('login:Successful');
+            //     },
+            //     function (response) {
+            //         isAuthenticated = false;
+            //     }
+            // );
 
         };
 
@@ -93,7 +102,7 @@ angular.module('app')
             return username;
         };
 
-        authFac.getAdmin = function() {
+        authFac.getAdmin = function () {
             return admin;
         }
 
