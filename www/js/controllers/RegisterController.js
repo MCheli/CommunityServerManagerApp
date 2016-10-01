@@ -2,7 +2,7 @@
 
 angular.module('app')
 
-    .controller('RegisterController', ['$scope', '$state', '$stateParams', '$rootScope', function ($scope, $state, $stateParams, $rootScope) {
+    .controller('RegisterController', ['$scope', '$state', '$stateParams', '$rootScope', 'AuthFactory', function ($scope, $state, $stateParams, $rootScope, AuthFactory) {
         $scope.registerUsername = "";
         $scope.registerPassword = "";
         $scope.registerPasswordConfirmation = "";
@@ -10,14 +10,14 @@ angular.module('app')
         $rootScope.$on('registration:Successful', function () {
             $scope.loggedIn = AuthFactory.isAuthenticated();
             $scope.username = AuthFactory.getUsername();
-            $state.go('main');
+            $state.go('applications');
         });
 
-        $scope.registerUser = function () {
-            if ($scope.registerPassword === $scope.registerPasswordConfirmation) {
+        $scope.registerUser = function (username, password, confirmPassword) {
+            if (password === confirmPassword) {
                 var body = {
-                    username: $scope.registerUsername,
-                    password: $scope.registerPassword
+                    username: username,
+                    password: password
                 };
                 AuthFactory.register(body)
             } else {
