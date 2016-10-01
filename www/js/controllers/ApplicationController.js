@@ -4,12 +4,12 @@ angular.module('app')
 
     .controller('ApplicationController', ['$scope', '$rootScope', '$state', 'applicationFactory', 'AuthFactory', function ($scope, $rootScope, $state, applicationFactory, AuthFactory) {
 
-        $scope.applications = applicationFactory.query();
 
-        $scope.openApplication = function(id) {
-            console.log(id);
-            $state.go('')
-        }
+        $scope.$on('$stateChangeSuccess', function () {
+            $scope.applications = applicationFactory.query();
+        })
+
+
 
         // $scope.active = false;
         // $scope.admin = AuthFactory.getAdmin();

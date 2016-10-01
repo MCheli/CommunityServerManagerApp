@@ -2,18 +2,18 @@
 
 angular.module('app')
 
-    .controller('ApplicationController', ['$scope', '$state', '$window', '$stateParams', 'applicationFactory', 'scriptFactory', 'AuthFactory', function ($scope, $state, $window, $stateParams, applicationFactory, scriptFactory, AuthFactory) {
+    .controller('ScriptController', ['$scope', '$state', '$window', '$stateParams', 'applicationFactory', 'scriptFactory', 'AuthFactory', function ($scope, $state, $window, $stateParams, applicationFactory, scriptFactory, AuthFactory) {
 
         $scope.application = {};
         $scope.loadingState = true;
         $scope.admin = AuthFactory.getAdmin();
+        $scope.application = applicationFactory.get({
+            id: $stateParams.name
+        })
 
         $scope.$on('$stateChangeSuccess', function () {
             $scope.application = applicationFactory.get({
                 id: $stateParams.name
-            })
-            $scope.application.$promise.then(function(){
-                $scope.loadingState = false;
             })
         })
 
