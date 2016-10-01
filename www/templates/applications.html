@@ -1,14 +1,14 @@
 <ion-view title="Applications" id="page6">
     <ion-content padding="true" class="has-header">
         <div class="list card" id="applications-card21" ng-repeat="application in applications"
-             ui-sref="applications.scripts({ name: '{{application._id}}' })">
+             ui-sref="scripts({ name: '{{application._id}}' })">
             <h1 id="applications-heading4" style="color:#473B45;font-weight:700;padding-top: 20px;padding-left: 20px; padding-right: 20px;">{{application.applicationName}}</h1>
             <div id="applications-markdown5" style="color:#473B45; padding-left: 20px; padding-right: 20px; padding-top: 10px;">
                 <p>{{application.applicationDescription}}</p>
             </div>
             <div style="margin-right:-20px; margin-bottom: -12px">
                 <button id="scripts-button6" style="left:-10px;" class="button button-energized button-full"
-                        ui-sref="applications.scripts({ name: '{{application._id}}' })">View Scripts
+                        ui-sref="scripts({ name: '{{application._id}}' })">View Scripts
                 </button>
             </div>
         </div>

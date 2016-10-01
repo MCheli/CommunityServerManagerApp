@@ -30,7 +30,7 @@ angular.module('app.routes', [])
                 controller: 'ApplicationController'
             })
 
-            .state('applications.scripts', {
+            .state('scripts', {
                 url: '/home/:name',
                 templateUrl: 'templates/scripts.html',
                 controller: 'ScriptController',
