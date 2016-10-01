@@ -1,10 +1,9 @@
 'use strict';
 
 angular.module('app')
-//TODO: Add back AuthFactory
-    .controller('LoginController', ['$scope', '$state', '$rootScope', 'AuthFactory', function ($scope, $state, $rootScope, AuthFactory) {
+    .controller('LoginController', ['$scope', '$state', '$rootScope', 'AuthFactory', '$localStorage', function ($scope, $state, $rootScope, AuthFactory, $localStorage) {
 
-        $scope.username = "";
+        $scope.username = $localStorage.get("username", "");
         $scope.password = "";
 
         $rootScope.$on('login:Successful', function () {
@@ -14,14 +13,13 @@ angular.module('app')
         });
 
         $scope.loginUser = function (username, password) {
-            console.log("Whats happening")
-            console.log(username)
-            console.log(password)
+
+            $localStorage.store("username", username);
+
             var body = {
                 username: username,
                 password: password
             };
-            console.log(body)
             AuthFactory.login(body)
         };
     }]);

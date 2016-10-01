@@ -44,32 +44,24 @@ angular.module('app')
         }
 
         authFac.login = function (loginData) {
-            //TODO:  Clean this up
-            var config = {
-                headers: {
-                    "Access-Control-Allow-Origin": "*",
-                    'Content-Type': 'application/json'
-                }
-            }
+
             var url = baseURL + "users/login";
-            $http.post(url, loginData, config);
-            //     .post(loginData).then(
-            //     function (response) {
-            //         console.log(response)
-            //         storeUserCredentials({
-            //             username: loginData.username,
-            //             token: response.token,
-            //             admin: response.admin
-            //         });
-            //         $rootScope.$broadcast('login:Successful');
-            //     },
-            //     function (response) {
-            //         isAuthenticated = false;
-            //     }
-            // );
 
+            $resource(url)
+                .save(loginData,
+                    function (response) {
+                        storeUserCredentials({
+                            username: loginData.username,
+                            token: response.token,
+                            admin: response.admin
+                        });
+                        $rootScope.$broadcast('login:Successful');
+                    },
+                    function (response) {
+                        isAuthenticated = false;
+                    }
+                );
         };
-
         authFac.logout = function () {
             $resource(baseURL + "users/logout").get(function (response) {
             });

@@ -2,14 +2,16 @@
 
 angular.module('app')
 
-    .controller('ServerController', ['$scope', '$state', '$stateParams', '$rootScope', function ($scope, $state, $stateParams, $rootScope) {
+    .controller('ServerController', ['$scope', '$state', '$stateParams', '$rootScope', '$localStorage', function ($scope, $state, $stateParams, $rootScope, $localStorage) {
 
-        $rootScope.serverURL = {};
+        $scope.serverInput = $localStorage.get("serverURL", "");
 
         $scope.setServerURL = function (serverURL) {
-            console.log(serverURL);
-            $rootScope.serverURL = serverURL;
+
+            $localStorage.store("serverURL", serverURL);
+            $rootScope.serverURL = serverURL + "/";
             $state.go('login')
+
         }
 
     }])
