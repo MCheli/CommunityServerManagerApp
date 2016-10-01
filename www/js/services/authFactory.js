@@ -44,7 +44,7 @@ angular.module('app')
         }
 
         authFac.login = function (loginData) {
-
+            //TODO:  Clean this up
             var config = {
                 headers: {
                     "Access-Control-Allow-Origin": "*",
